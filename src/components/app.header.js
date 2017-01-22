@@ -6,7 +6,7 @@ import {
 	View,
 } from 'react-native';
 
-export class AppHeader extends Component {
+class AppHeader extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -41,3 +41,5 @@ const styles = StyleSheet.create({
 		backgroundColor: '#dd0'
 	}
 });
+
+export default AppHeader;

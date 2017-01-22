@@ -5,51 +5,56 @@
  */
 
 import React, { Component } from 'react';
-import {AppHeader} from './src/components/app.header';
+import AppHeader from './src/components/app.header';
+import AppContainer from './src/components/app.container';
+
 import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from 'react-native';
 
 export default class HelloProject extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      txt: ''
+    }
+  }
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.main}>
         <AppHeader title="Hello World"></AppHeader>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <AppContainer>
+          <TextInput
+            placeholder="please input sth"
+            onChangeText={(v) => {this.updateTxt(v)}}
+            style={styles.ipt}
+          />
+          <Text>{this.state.txt}</Text>
+        </AppContainer>
       </View>
     );
+  }
+  updateTxt(txt) {
+    this.setState({txt});
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  main: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  ipt: {
+    width: 400,
+    height: 40
+  }
 });
 
+// 这里的注册是注册的应用, 而不是注册的react的组件, 应用中的组件只需要在应用中import 即可, 而不需要每次都import
 AppRegistry.registerComponent('HelloProject', () => HelloProject);
