@@ -7,12 +7,13 @@
 import React, { Component } from 'react';
 import AppHeader from './src/components/app.header';
 import AppContainer from './src/components/app.container';
+import AppScroll from './src/components/app.scroll';
 
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  TextInput,
+  ScrollView,
   View
 } from 'react-native';
 
@@ -26,20 +27,12 @@ export default class HelloProject extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <AppHeader title="Hello World"></AppHeader>
+        <AppHeader title="海外接送机"></AppHeader>
         <AppContainer>
-          <TextInput
-            placeholder="please input sth"
-            onChangeText={(v) => {this.updateTxt(v)}}
-            style={styles.ipt}
-          />
-          <Text>{this.state.txt}</Text>
+          <AppScroll />
         </AppContainer>
       </View>
     );
-  }
-  updateTxt(txt) {
-    this.setState({txt});
   }
 }
 
@@ -49,10 +42,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  ipt: {
-    width: 400,
-    height: 40
   }
 });
 

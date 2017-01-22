@@ -37,8 +37,7 @@ const styles = StyleSheet.create({
 	navBar: {
 		color: '#c00',
 		flex: 1,
-		textAlign: 'center',
-		backgroundColor: '#dd0'
+		textAlign: 'center'
 	}
 });
 
