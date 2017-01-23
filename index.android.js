@@ -21,13 +21,14 @@ export default class HelloProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      txt: ''
+      title: 'http://123456',
+      content: ''
     }
   }
   render() {
     return (
       <View style={styles.main}>
-        <AppHeader title="海外接送机"></AppHeader>
+        <AppHeader title="123"></AppHeader>
         <AppContainer>
           <AppScroll />
         </AppContainer>
