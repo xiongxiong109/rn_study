@@ -3,28 +3,27 @@ import React, {Component} from 'react';
 import {
 	StyleSheet,
 	Text,
+	Button,
 	View,
 	ListView
 } from 'react-native';
 
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
 class AppList extends Component {
 	constructor(props) {
 		super(props);
-		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
-			dataList: ds.cloneWithRows([
-				{nm: 'LL', age: 25},
-				{nm: 'aas', age: 23},
-				{nm: 'dasd', age: 21},
-				{nm: 'sdf', age: 18},
-				{nm: 'LrwerL', age: 23},
-				{nm: 'weqwe', age: 11}
-			])
+			dataList: ds.cloneWithRows([])
 		}
 	}
 	render() {
 		return (
 			<View style={styles.listView}>
+				<Button
+					title="click"
+					onPress={() => {this.fetchData()}}
+				/>
 				<ListView
 					dataSource={this.state.dataList}
 					renderRow={
@@ -38,6 +37,28 @@ class AppList extends Component {
 				/>
 			</View>
 		)
+	}
+	fetchData() {
+		let _page = this;
+		// 调用fetch api 获取网络数据
+		fetch('http://192.168.1.104:3000/apis/userList', {
+			method: 'POST',
+			headers: {
+		    'Accept': 'application/json',
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
+		    firstParam: 'yourValue',
+		    secondParam: 'yourOtherValue',
+		  })
+		})
+		.then(res => res.json())
+		.then(data => {
+			_page.setState({
+				dataList: ds.cloneWithRows(data.list)
+			});
+		})
+		.catch(e => alert(e))
 	}
 }
 
