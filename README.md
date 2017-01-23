@@ -21,3 +21,5 @@ react-native-study
 2. `react-native run-android` (用于打包一个android app 到手机上)
 
 其他的开发模式，只需要接入react native的文档，并按照react的开发方式来就ok了
+
+当一个项目上传到git，然后在不同的机器上多端开发的时候，会遇到安装包前面版本不一致的问题，这个时候删除原手机上的apk包, 再重新执行run-android即可
