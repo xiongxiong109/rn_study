@@ -7,13 +7,12 @@
 import React, { Component } from 'react';
 import AppHeader from './src/components/app.header';
 import AppContainer from './src/components/app.container';
-import AppScroll from './src/components/app.scroll';
+import AppList from './src/components/app.list';
 
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  ScrollView,
   View
 } from 'react-native';
 
@@ -30,7 +29,7 @@ export default class HelloProject extends Component {
       <View style={styles.main}>
         <AppHeader title="123"></AppHeader>
         <AppContainer>
-          <AppScroll />
+          <AppList />
         </AppContainer>
       </View>
     );
