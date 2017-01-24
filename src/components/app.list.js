@@ -21,7 +21,7 @@ class AppList extends Component {
 		return (
 			<View style={styles.listView}>
 				<Button
-					title="click"
+					title="click to fetch"
 					onPress={() => {this.fetchData()}}
 				/>
 				<ListView
@@ -29,8 +29,8 @@ class AppList extends Component {
 					renderRow={
 						(rowData) => (
 							<View>
-								<Text>姓名:{rowData.nm}</Text>
-								<Text>年龄:{rowData.age}</Text>
+								<Text>电影名称:{rowData.title}</Text>
+								<Text>总评:{rowData.collect_count}</Text>
 							</View>
 							)
 					}
@@ -38,27 +38,27 @@ class AppList extends Component {
 			</View>
 		)
 	}
-	fetchData() {
-		let _page = this;
-		// 调用fetch api 获取网络数据
-		fetch('http://192.168.1.104:3000/apis/userList', {
-			method: 'POST',
-			headers: {
-		    'Accept': 'application/json',
-		    'Content-Type': 'application/json',
-		  },
-		  body: JSON.stringify({
-		    firstParam: 'yourValue',
-		    secondParam: 'yourOtherValue',
-		  })
-		})
-		.then(res => res.json())
-		.then(data => {
-			_page.setState({
-				dataList: ds.cloneWithRows(data.list)
-			});
-		})
-		.catch(e => alert(e))
+	// 使用async 与 await语法来调用
+	async fetchData() {
+		// let _page = this;
+		// // 调用fetch api 获取网络数据
+		// fetch('https://api.douban.com/v2/movie/search?q=%E9%AC%BC%E5%90%B9%E7%81%AF')
+		// .then(res => res.json())
+		// .then(data => {
+		// 	_page.setState({
+		// 		dataList: ds.cloneWithRows(data.subjects)
+		// 	});
+		// })
+		// .catch(e => alert(e))
+		try {
+			let res = await fetch('https://api.douban.com/v2/movie/search?q=%E9%AC%BC%E5%90%B9%E7%81%AF');
+			let resJSON = await res.json();
+			this.setState({
+				dataList: ds.cloneWithRows(resJSON.subjects)
+			})
+		} catch(e) {
+			alert(e);
+		}
 	}
 }
 
