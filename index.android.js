@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import AppHeader from './src/components/app.header';
 import AppContainer from './src/components/app.container';
-import AppList from './src/components/app.list';
+import SearchMovie from './src/example/search.movie';
 
 import {
   AppRegistry,
@@ -20,17 +20,14 @@ export default class HelloProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'http://123456',
+      title: '电影搜索',
       content: ''
     }
   }
   render() {
     return (
       <View style={styles.main}>
-        <AppHeader title="123"></AppHeader>
-        <AppContainer>
-          <AppList />
-        </AppContainer>
+        <SearchMovie style={styles.main}/>
       </View>
     );
   }
