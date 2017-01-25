@@ -27,8 +27,8 @@ class Home extends Component {
 				<TouchableOpacity onPress={() => {this.go('Animate')}}>
 					<Text style={commonStyle.appBtn}>动画相关</Text>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => {this.go('Timer')}}>
-					<Text style={commonStyle.appBtn}>定时器</Text>
+				<TouchableOpacity onPress={() => {this.go('Touchable')}}>
+					<Text style={commonStyle.appBtn}>手势响应系统</Text>
 				</TouchableOpacity>
 			</View>
 		)

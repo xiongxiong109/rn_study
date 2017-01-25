@@ -4,6 +4,8 @@ import {
 	Text,
 	StyleSheet,
 	View,
+	TouchableOpacity,
+	Navigator
 } from 'react-native';
 
 class AppHeader extends Component {
@@ -13,9 +15,19 @@ class AppHeader extends Component {
 	render() {
 		return (
 			<View style={styles.navContainer}>
+				<TouchableOpacity onPress={() => this.evt_back()}>
+					<Text>返回</Text>
+				</TouchableOpacity>
 				<Text style={styles.navBar}>{this.props.title}</Text>
+				<Text>menu</Text>
 			</View>
 		)	
+	}
+	evt_back() {
+		let {navigator} = this.props;
+		if (navigator) {
+			navigator.pop();
+		}
 	}
 }
 
@@ -29,8 +41,10 @@ AppHeader.defaultProps = {
 const styles = StyleSheet.create({
 	navContainer: {
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'space-between',
 		flexDirection: 'row',
+		paddingLeft: 10,
+		paddingRight: 10,
 		height: 40,
 		backgroundColor: '#0065cd'
 	},

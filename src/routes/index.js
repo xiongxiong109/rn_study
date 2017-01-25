@@ -6,7 +6,10 @@ import Home from './Home';
 import List from './List';
 // animate
 import Animate from './Animate';
+// 定时器
 import Timer from './Timer';
+// touchable
+import Touchable from './Touchable';
 import {Navigator} from 'react-native';
 
 const routes = {
@@ -38,6 +41,10 @@ const routes = {
 			name: 'Timer',
 			type: 'page',
 			component: Timer
+		},
+		TouchableRoute: {
+			name: 'Touchable',
+			component: Touchable
 		}
 	}
 }
