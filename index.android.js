@@ -5,30 +5,33 @@
  */
 
 import React, { Component } from 'react';
-import AppHeader from './src/components/app.header';
-import AppContainer from './src/components/app.container';
-import SearchMovie from './src/example/search.movie';
-
 import {
   AppRegistry,
   StyleSheet,
+  Navigator,
   Text,
   View
 } from 'react-native';
 
+import routes from './src/routes';
+
 export default class HelloProject extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '电影搜索',
-      content: ''
-    }
   }
   render() {
     return (
-      <View style={styles.main}>
-        <SearchMovie style={styles.main}/>
-      </View>
+      <Navigator
+        // 定义初始路由
+        initialRoute={routes.map.defaultRoute}
+        // 配置scene场景切换
+        configureScene={routes.config}
+        // 调用路由渲染函数, route传递的就是配置的路由的对象
+        // navigator传递的就是navigator实例, 具有push、pop、jump等方法
+        renderScene={(route, navigator) => {
+          let Component = route.component;
+          return <Component {...route.params} navigator={navigator}/>
+        }}/>
     );
   }
 }
