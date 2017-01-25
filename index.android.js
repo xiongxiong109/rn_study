@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import routes from './src/routes';
+import commonStyle from './src/styles/common';
 
 export default class HelloProject extends Component {
   constructor(props) {
@@ -26,6 +27,8 @@ export default class HelloProject extends Component {
         initialRoute={routes.map.defaultRoute}
         // 配置scene场景切换
         configureScene={routes.config}
+        // 配置路由公共样式
+        sceneStyle={commonStyle.appContainer}
         // 调用路由渲染函数, route传递的就是配置的路由的对象
         // navigator传递的就是navigator实例, 具有push、pop、jump等方法
         renderScene={(route, navigator) => {

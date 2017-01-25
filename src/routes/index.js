@@ -5,7 +5,7 @@ import Home from './Home';
 // 列表页
 import List from './List';
 // booking
-import Booking from './Booking';
+import Animate from './Animate';
 // 详情页
 import Detail from './Detail';
 
@@ -17,7 +17,7 @@ const routes = {
 		if (route.type == 'plugin') { // 让插件从下方弹出
 			return Navigator.SceneConfigs.FloatFromBottom;
 		} // 让页面左右切换
-		return Navigator.SceneConfigs.FloatFromRight;
+		return Navigator.SceneConfigs.PushFromRight ;
 	},
 	// 路由mapping
 	map: {
@@ -28,8 +28,13 @@ const routes = {
 		},
 		listRoute: {
 			name: 'List',
-			type: 'plugin',
+			type: 'page',
 			component: List
+		},
+		aniRoute: {
+			name: 'Animate',
+			type: 'page',
+			component: Animate
 		}
 	}
 }

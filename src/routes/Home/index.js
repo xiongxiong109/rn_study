@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import routes from '../index';
 
+import commonStyle from '../../styles/common';
+
 class Home extends Component {
 	render() {
 		return (
@@ -17,12 +19,14 @@ class Home extends Component {
 					<Image 
 					source={require('../../imgs/bar.png')}
 					style={styles.banner}
-					>
-						<TouchableOpacity onPress={() => {this.goList()}}>
-							<Text>查询</Text>
-						</TouchableOpacity>
-					</Image>
+					/>
 				</View>
+				<TouchableOpacity onPress={() => {this.goList()}}>
+					<Text style={commonStyle.appBtn}>手势事件</Text>
+				</TouchableOpacity>
+				<TouchableOpacity onPress={() => {this.goAnimate()}}>
+					<Text style={commonStyle.appBtn}>动画相关</Text>
+				</TouchableOpacity>
 			</View>
 		)
 	}
@@ -31,6 +35,13 @@ class Home extends Component {
 		if (navigator) {
 			// 跳转到列表页
 			navigator.push(routes.map.listRoute);
+		}
+	}
+	goAnimate() {
+		let {navigator} = this.props;
+		if (navigator) {
+			// 跳转到列表页
+			navigator.push(routes.map.aniRoute);
 		}
 	}
 }
