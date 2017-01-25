@@ -4,11 +4,9 @@
 import Home from './Home';
 // 列表页
 import List from './List';
-// booking
+// animate
 import Animate from './Animate';
-// 详情页
-import Detail from './Detail';
-
+import Timer from './Timer';
 import {Navigator} from 'react-native';
 
 const routes = {
@@ -26,15 +24,20 @@ const routes = {
 			type: 'page',
 			component: Home
 		},
-		listRoute: {
+		ListRoute: {
 			name: 'List',
 			type: 'page',
 			component: List
 		},
-		aniRoute: {
+		AnimateRoute: {
 			name: 'Animate',
 			type: 'page',
 			component: Animate
+		},
+		TimerRoute: {
+			name: 'Timer',
+			type: 'page',
+			component: Timer
 		}
 	}
 }

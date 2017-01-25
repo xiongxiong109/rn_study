@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		flexDirection: 'row',
 		height: 40,
-		backgroundColor: 'rgba(125,125,125,.5)'
+		backgroundColor: '#0065cd'
 	},
 	navBar: {
-		color: '#c00',
-		flex: 1,
+		color: '#ccc',
+		// flex: 1,
 		textAlign: 'center'
 	}
 });

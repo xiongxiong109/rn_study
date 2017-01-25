@@ -21,29 +21,32 @@ class Home extends Component {
 					style={styles.banner}
 					/>
 				</View>
-				<TouchableOpacity onPress={() => {this.goList()}}>
+				<TouchableOpacity onPress={() => {this.go('List')}}>
 					<Text style={commonStyle.appBtn}>手势事件</Text>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => {this.goAnimate()}}>
+				<TouchableOpacity onPress={() => {this.go('Animate')}}>
 					<Text style={commonStyle.appBtn}>动画相关</Text>
+				</TouchableOpacity>
+				<TouchableOpacity onPress={() => {this.go('Timer')}}>
+					<Text style={commonStyle.appBtn}>定时器</Text>
 				</TouchableOpacity>
 			</View>
 		)
 	}
-	goList() {
+	go(path) {
 		let {navigator} = this.props;
 		if (navigator) {
 			// 跳转到列表页
-			navigator.push(routes.map.listRoute);
+			navigator.push(routes.map[`${path}Route`]);
 		}
 	}
-	goAnimate() {
-		let {navigator} = this.props;
-		if (navigator) {
-			// 跳转到列表页
-			navigator.push(routes.map.aniRoute);
-		}
-	}
+	// goAnimate() {
+	// 	let {navigator} = this.props;
+	// 	if (navigator) {
+	// 		// 跳转到列表页
+	// 		navigator.push(routes.map.aniRoute);
+	// 	}
+	// }
 }
 
 const styles = StyleSheet.create({
