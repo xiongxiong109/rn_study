@@ -17,7 +17,7 @@ react-native-study
 
 启动react-native, 需要
 
-1. `react-native start --port 5389` (记住本机的端口号, 手机网络与电脑处在同一wifi下, 并且启用了代理)
+1. `react-native start --port 5389` (记住本机的端口号, 手机网络与电脑处在同一wifi下, 并且启用了代理) 注意不要开启fiddler, 可能会被拦截掉
 2. `react-native run-android` (用于打包一个android app 到手机上)
 
 其他的开发模式，只需要接入react native的文档，并按照react的开发方式来就ok了

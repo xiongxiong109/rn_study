@@ -10,6 +10,9 @@ import Animate from './Animate';
 import Timer from './Timer';
 // touchable
 import Touchable from './Touchable';
+// 布局
+import Layout from './Layout';
+
 import {Navigator} from 'react-native';
 
 const routes = {
@@ -45,6 +48,10 @@ const routes = {
 		TouchableRoute: {
 			name: 'Touchable',
 			component: Touchable
+		},
+		LayoutRoute: {
+			name: 'Layout',
+			component: Layout
 		}
 	}
 }

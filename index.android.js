@@ -23,18 +23,18 @@ export default class HelloProject extends Component {
   render() {
     return (
       <Navigator
-        // 定义初始路由
-        initialRoute={routes.map.defaultRoute}
-        // 配置scene场景切换
-        configureScene={routes.config}
-        // 配置路由公共样式
-        sceneStyle={commonStyle.appContainer}
-        // 调用路由渲染函数, route传递的就是配置的路由的对象
-        // navigator传递的就是navigator实例, 具有push、pop、jump等方法
-        renderScene={(route, navigator) => {
-          let Component = route.component;
-          return <Component {...route.params} navigator={navigator}/>
-        }}/>
+          // 定义初始路由
+          initialRoute={routes.map.defaultRoute}
+          // 配置scene场景切换
+          configureScene={routes.config}
+          // 配置路由公共样式
+          sceneStyle={commonStyle.appContainer}
+          // 调用路由渲染函数, route传递的就是配置的路由的对象
+          // navigator传递的就是navigator实例, 具有push、pop、jump等方法
+          renderScene={(route, navigator) => {
+            let Component = route.component;
+            return <Component {...route.params} navigator={navigator}/>
+          }}/>
     );
   }
 }

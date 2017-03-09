@@ -30,6 +30,9 @@ class Home extends Component {
 				<TouchableOpacity onPress={() => {this.go('Touchable')}}>
 					<Text style={commonStyle.appBtn}>手势响应系统</Text>
 				</TouchableOpacity>
+				<TouchableOpacity onPress={() => {this.go('Layout')}}>
+					<Text style={commonStyle.appBtn}>布局相关</Text>
+				</TouchableOpacity>
 			</View>
 		)
 	}
